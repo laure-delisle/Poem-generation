@@ -51,6 +51,10 @@ def load_syllable_data():
     syllable_df['other_syllables'] = np.NaN
     syllable_df.at[idx_values,'other_syllables'] = second_syl
 
+    # cast everything to float
+    for column in ["syllables", "end_linesyllables", "other_syllables"]:
+    	syllable_df[column] = syllable_df[column].apply(lambda x: float(x))
+
     return syllable_df
 
 
